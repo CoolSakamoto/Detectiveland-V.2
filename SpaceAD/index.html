@@ -1,0 +1,207 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+		<link rel="stylesheet" type="text/css" href="res/versifier.css" />
+		<link rel="stylesheet" type="text/css" href="res/detectiveland.css" />
+		<title>Detectiveland</title>
+		<script type="text/javascript" src="res/jquery-2.2.0.min.js"></script>
+		<script type="text/javascript" src="res/versifier.js"></script>
+		<script type="text/javascript" src="res/detectiveland.js"></script>
+		<script type="text/javascript" src="res/detectiveland-verbs.js"></script>
+		<script type="text/javascript" src="res/conversifier.js"></script>
+	</head>
+	<body>
+	
+		<div id="splashscreen">
+		
+			<img id="detectiveland_title" src="res/img/detectiveland-title.png"/><br/>
+			<button type="button" onClick="hide_splash();">start game</button><br/>
+			<button type="button" onClick="goto_loader(); hide_splash();">restore game</button><br/>
+			<button type="button" onclick="show_credits();">credits</button>
+								
+		</div>
+
+		<div id="top_bar">
+			<div id="title">
+		    	Detectiveland
+		    </div>
+		    <div id="score">
+				Cases solved: 0/4
+			</div>
+		</div>
+
+		<div id="columns"><!-- two-column layout activated in css if landscape -->
+			<div id="left-column">
+			
+				<div id="scroller">
+				</div>
+
+				<div id="save_load_container">
+					<div id="save_load">
+						<button type="button" onClick="save_game()">save game</button>
+						<button type="button" onClick="goto_loader()">restore game</button>
+						<button type="button" onClick="confirm_restart()">restart game</button>
+						<button type="button" onClick="undo()">undo</button>
+						<br/>
+						
+						<p style="text-align: center;"><button type="button" onclick="show_options()">options</button>
+						<button type="button" onclick="show_credits();">credits</button>
+						<a class="button" target="_blank" href="res/detectiveland-hints.html">hints</a>
+					</div>
+				</div>
+							
+			</div>
+			<div id="right-column">
+		
+				<div id="conversation_container">
+					<div id="conversation">
+					
+					Talking to: nobody<br/>
+					<br/>
+					Ask about:
+					<button type="button" onClick="ask('officer', 'uniform')">1</button>
+					<button type="button" onClick="ask('officer', 'uniform')">2</button>
+					<button type="button" onClick="ask('officer', 'uniform')">3</button>
+	
+					
+					</div>
+				</div>
+				
+				<div id="room_description_container">
+					<div id="room_description">
+					<p>Initialising... (your browser needs to have JavaScript enabled)</p>
+				</div>
+
+				<div id="holding_container">
+					<div id="holding">
+						I'm holding:
+						<ul><li>nothing</li></ul>
+					</div>
+				</div>
+
+				<div id="savefix">
+					<div id="inventory_container">
+						<div id="inventory">
+						</div>
+					</div>
+				</div>
+	
+			<div>			
+		</div>
+		
+		
+		<div id="saved_games">
+		</div>
+		
+		<div id="options">
+		
+			<p style="text-decoration: underline;">Display options</p>
+		
+			<p>font:
+				<select id="font_select" onChange="change_font()">
+					<option selected="selected" value="typewriter">Old typewriter</option>
+					<option value="Courier New">Courier New</option>
+					<option value="monospace">Monospace</option>
+					<option value="serif">Serif</option>
+					<option value="sans-serif">Sans</option>
+				</select>
+			</p>
+		
+			<p>font size:
+				<button type="button" onClick="change_font_size(-1)">smaller</button>
+				<button type="button" onClick="change_font_size(1)">larger</button>
+				<button type="button" onClick="change_font_size(0)">reset</button>
+			</p>
+			
+			<p>
+				Print room title in scroller:
+				<input type="checkbox" id="roomdesc_always" /> Always
+				<input checked="checked" type="checkbox" id="roomdesc_landscape" /> Landscape&nbsp;only
+				<input type="checkbox" id="roomdesc_never" /> Never
+			</p>
+			<!-- p>
+				Print long room description:
+				<input type="checkbox" id="verbose" /> Always
+				<input checked="checked" type="checkbox" id="noverbose" /> Only&nbsp;on&nbsp;first&nbsp;visit
+			</p -->
+			<p>
+				List objects in scroller:
+				<input type="checkbox" id="listobj_always" /> Always
+				<input type="checkbox" id="listobj_landscape" /> Landscape&nbsp;only
+				<input type="checkbox" checked="checked" id="listobj_never" /> Never
+			</p>
+			<p>
+				Sound:
+				<input type="checkbox" checked="checked" id="typing_sound" /> Sound effects
+				<input type="checkbox" checked="checked" id="music" /> Music
+			</p>
+			
+			<p style="text-align: center;"><button type="button" onClick="hide_options()">done</button></p>
+			
+		</div>
+
+		<div id="credits">
+		
+			<p style="text-decoration: underline;">DETECTIVELAND</p>
+		
+			<p>Written, designed and programmed by Robin Johnson
+			&lt;<a style="background-color: inherit;" href="mailto:robindouglasjohnson@gmail.com">robindouglasjohnson@gmail.com</a>&gt;.</p>
+
+			<p>Music composed and performed by the author.<br/>
+				- Main theme: alto saxophone, U-bass and cajon<br/>
+				- Streets theme: U-bass and cajon<br/>
+				- Speakeasy theme: alto saxophone, U-bass, banjo and cajon<br/>
+				- Italian theme: guitar, bouzouki and maracas<br/>
+				- Moonshiners' theme: banjo in G minor<br/>
+				- Spooky theme: digital piano and melodica<br/>
+				- Tunnel theme: digital piano
+			</p>
+			
+			<p>This game uses the free font "Rough Typewriter", available at dafont.com, and artwork from various old pulp novel \
+			and magazine covers, with thanks to pulpcovers.com.</p>
+			
+			<p>Testers: David Court, Brendan Hennessy, Mathbrush, Mike Preston, Eve Morris, Andrew Schultz.</p>
+			
+			<p>Thanks to the IFComp organisers, and to the good people of the intfiction.org forum and the euphoria &amp;if channel, and to Eve.</p>
+
+			<p style="text-align: center;"><button type="button" onClick="hide_credits()">done</button></p>
+			
+		</div>
+
+		
+	<audio id="typing_audio" src="res/sound/typing_fast.mp3" loop="loop"></audio>
+	<!-- audio class="music" id="noir_music" src="sound/411597_Detective_Noir_Loop.mp3" loop="loop"></audio -->
+
+	
+	<div style="display: none;"><!-- preload images -->
+		<img src="res/img/mrs_macdonald.png" />
+		<img src="res/img/wexler.png" />
+		<img src="res/img/tony.png" />
+		<img src="res/img/professor.png" />
+		<img src="res/img/college-students.png" />
+		<img src="res/img/clerk.png" />
+		<img src="res/img/vivienne.png" />
+		<img src="res/img/snake_fingers.png" />
+		<img src="res/img/gianni.png" />
+		<img src="res/img/cawmill.png" />
+		<img src="res/img/workers.png" />
+		<img src="res/img/granpappy.png" />
+		<img src="res/img/epsom.png" />
+		<img src="res/img/maryjo.png" />
+		<img src="res/img/garroway.png" />
+		<img src="res/img/lieutenant.png" />
+		<img src="res/img/ruby.png" />
+		<img src="res/img/marcus.png" />
+		<img src="res/img/brinkman.png" />
+		<img src="res/img/sailor.png" />
+		<img src="res/img/receptionist.png" />
+		<img src="res/img/knucklesworth.png" />
+		<img src="res/img/takahashi.png" />
+		<img src="res/img/taxi.png" />
+	</div>	
+	</body>
+	<script type="text/javascript">
+		initialise();
+		restart_game();
+	</script>
+</html>
