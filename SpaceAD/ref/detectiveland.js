@@ -28,10 +28,8 @@ Game = {
 	turn_number: 0,
 	game_time: 600, // game starts at 10:00 a.m.
 
-	intro: "Another working day begins for Lanson Rose, private investigator. " +
-	"I got three clients waiting outside my office, and beyond that, a town full of creeps, clowns, mobsters " +
-	"and, if you know where to look, the occasional honest citizen. When trouble is your business, you're " +
-	"rarely short of work in New Losago.\n\n",
+	intro: "I woke up to the tinny noise of the alarm going off. I was about to reach over to slap the alarm off, but to my surprise, it was actually the ship’s alarm blaring...Probably a message from the commander.\n\n" + 
+	"There’s stuff on my bedside table, and in my stupor, I reach out and grab the first thing my hand lands on:\n\n",
 
 	inventory: ["money"],
 	held: "",
